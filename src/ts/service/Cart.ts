@@ -2,7 +2,6 @@ import Buyable from '../domain/Buyable';
 
 export default class Cart {
     private _items: Buyable[] = [];
-    private sum: number = 0;
 
     add(item: Buyable): void {
         this._items.push(item);
@@ -13,8 +12,7 @@ export default class Cart {
     }
 
     calculatePrice(): number {
-        const totalPrice = this.items.reduce((acc, prev) => acc + prev.price, 0);
-        return totalPrice;
+        return this.items.reduce((acc, prev) => acc + prev.price, 0);
     }
 
     calculatePriceDiscount(discount: number): number {
